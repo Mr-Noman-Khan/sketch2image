@@ -108,7 +108,3 @@ Mean edge recall on the baseline: TODO (wrong sketch reference: TODO).
 | Sketch | Source |
 |---|---|
 | TODO | drawn by me / link + license |
-
-## AI assistance
-
-I used an AI assistant (Claude) for guidance on the approach and help with parts of the code. I wrote, ran and tested the code myself and can explain all parts of the implementation.
