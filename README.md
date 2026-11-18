@@ -1,6 +1,6 @@
 # Sketch to Image with Stable Diffusion + ControlNet
 
-Course project (Generative AI, Session 2): turning hand-drawn sketches into realistic or stylized images while keeping the structure of the sketch.
+Course project (Generative AI, Session 2): turning sketches into realistic or stylized images while keeping the structure of the sketch.
 
 ## How it works
 
@@ -105,6 +105,18 @@ Mean edge recall on the baseline: TODO (wrong sketch reference: TODO).
 
 ## Sketch sources
 
+The input sketches are free sketch images found online through Google Images search. They were not drawn by me and are used only for this non-commercial course project.
+
 | Sketch | Source |
 |---|---|
-| TODO | drawn by me / link + license |
+| butterfly | Google Images (free online sketch) |
+| camera | Google Images (free online sketch) |
+| city | Google Images (free online sketch) |
+| eye | Google Images (free online sketch) |
+| pencil | Google Images (free online sketch) |
+| person | Google Images (free online sketch) |
+| scribble | Google Images (free online sketch) |
+| skull | Google Images (free online sketch) |
+| station | Google Images (free online sketch) |
+| tree | Google Images (free online sketch) |
+| yellow_flowers | Google Images (free online sketch) |
