@@ -1,10 +1,5 @@
-"""Load Stable Diffusion 1.5 + ControlNet and generate images from sketches."""
 import torch
-from diffusers import (
-    ControlNetModel,
-    StableDiffusionControlNetPipeline,
-    UniPCMultistepScheduler,
-)
+from diffusers import ControlNetModel, StableDiffusionControlNetPipeline, UniPCMultistepScheduler
 
 BASE_MODEL = "stable-diffusion-v1-5/stable-diffusion-v1-5"
 CONTROLNETS = {
@@ -15,31 +10,20 @@ DEFAULT_NEGATIVE = "blurry, low quality, deformed, distorted, watermark, text"
 
 
 def load_pipeline(control_type="scribble", device="cuda"):
-    """Load the base Stable Diffusion model with the chosen ControlNet."""
-    controlnet = ControlNetModel.from_pretrained(
-        CONTROLNETS[control_type], torch_dtype=torch.float16
-    )
+    # fp16 to save memory on the T4
+    controlnet = ControlNetModel.from_pretrained(CONTROLNETS[control_type], torch_dtype=torch.float16)
     pipe = StableDiffusionControlNetPipeline.from_pretrained(
         BASE_MODEL, controlnet=controlnet, torch_dtype=torch.float16
     )
-    # UniPC gives good results in ~20-30 steps (faster than the default scheduler)
+    # UniPC works well with ~25 steps
     pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
     pipe.to(device)
     return pipe
 
 
-def generate(
-    pipe,
-    control_image,
-    prompt,
-    negative_prompt=DEFAULT_NEGATIVE,
-    steps=25,
-    guidance_scale=7.5,
-    controlnet_scale=1.0,
-    seed=42,
-    num_images=1,
-):
-    """Generate image(s) that follow the sketch's structure and the prompt."""
+def generate(pipe, control_image, prompt, negative_prompt=DEFAULT_NEGATIVE,
+             steps=25, guidance_scale=7.5, controlnet_scale=1.0, seed=42, num_images=1):
+    # fixed seed so results can be reproduced
     generator = torch.Generator(device=pipe.device).manual_seed(seed)
     result = pipe(
         prompt=prompt,
