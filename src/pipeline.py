@@ -24,14 +24,15 @@ def load_pipeline(control_type="scribble", device="cuda"):
 def generate(pipe, control_image, prompt, negative_prompt=DEFAULT_NEGATIVE,
              steps=25, guidance_scale=7.5, controlnet_scale=1.0, seed=42, num_images=1):
     # fixed seed so results can be reproduced
-    generator = torch.Generator(device=pipe.device).manual_seed(seed)
+    generator = torch.Generator(device=pipe.device).manual_seed(int(seed))
     result = pipe(
         prompt=prompt,
         image=control_image,
         negative_prompt=negative_prompt,
-        num_inference_steps=steps,
-        guidance_scale=guidance_scale,
-        controlnet_conditioning_scale=controlnet_scale,
+        num_inference_steps=int(steps),
+        # sliders can send ints (e.g. 1 instead of 1.0), diffusers wants floats
+        guidance_scale=float(guidance_scale),
+        controlnet_conditioning_scale=float(controlnet_scale),
         generator=generator,
         num_images_per_prompt=num_images,
     )

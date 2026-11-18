@@ -3,9 +3,9 @@ import cv2
 from PIL import Image
 
 
-def load_sketch(path, size=512):
-    img = Image.open(path).convert("L")
-    # resize so the longest side is `size`, keep the aspect ratio
+def resize_sketch(img, size=512):
+    img = img.convert("L")
+    # longest side = size, keep aspect ratio
     w, h = img.size
     scale = size / max(w, h)
     # SD needs dimensions divisible by 8
@@ -14,8 +14,12 @@ def load_sketch(path, size=512):
     return img.resize((new_w, new_h), Image.LANCZOS)
 
 
+def load_sketch(path, size=512):
+    return resize_sketch(Image.open(path), size)
+
+
 def clean_sketch(img, thickness=3, block_size=25, c=10, min_area=30):
-    arr = np.array(img)
+    arr = np.array(img.convert("L"))
 
     # if the background is dark (digital drawing), flip it to normal first
     if arr.mean() < 127:
@@ -45,7 +49,7 @@ def clean_sketch(img, thickness=3, block_size=25, c=10, min_area=30):
 
 def invert_only(img):
     # baseline: just flip to white lines on black, no cleaning
-    arr = np.array(img)
+    arr = np.array(img.convert("L"))
     if arr.mean() > 127:
         arr = 255 - arr
     return Image.fromarray(arr).convert("RGB")
