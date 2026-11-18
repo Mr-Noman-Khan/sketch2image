@@ -1,0 +1,16 @@
+sketch,controlnet_scale,edge_recall,chamfer_px
+butterfly,0.0,0.579,7.965
+butterfly,0.3,0.694,6.782
+butterfly,0.6,0.835,2.622
+butterfly,1.0,0.933,1.763
+butterfly,1.5,0.962,1.534
+city,0.0,0.862,2.854
+city,0.3,0.898,2.215
+city,0.6,0.896,2.283
+city,1.0,0.758,3.661
+city,1.5,0.633,5.405
+person,0.0,0.197,28.366
+person,0.3,0.0,inf
+person,0.6,0.246,17.133
+person,1.0,0.47,8.593
+person,1.5,0.0,inf

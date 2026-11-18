@@ -1,0 +1,12 @@
+sketch,edge_recall,chamfer_px,recall_wrong_sketch,chamfer_wrong_sketch
+butterfly,0.933,1.763,0.701,10.867
+camera,0.894,2.338,0.479,17.291
+city,0.758,3.661,0.425,13.789
+eye,0.458,11.541,0.582,6.593
+pencil,0.666,9.227,0.1,81.829
+person,0.47,8.593,0.375,11.167
+scribble,0.991,0.844,0.648,10.43
+skull,0.954,1.447,0.407,27.879
+station,0.949,1.484,0.907,2.075
+tree,0.916,1.709,0.542,11.718
+yellow_flowers,0.917,1.89,0.582,7.78
