@@ -41,3 +41,23 @@ def clean_sketch(img, thickness=3, block_size=25, c=10, min_area=30):
         binary = cv2.dilate(binary, kernel)
 
     return Image.fromarray(binary).convert("RGB")
+
+
+def invert_only(img):
+    # baseline: just flip to white lines on black, no cleaning
+    arr = np.array(img)
+    if arr.mean() > 127:
+        arr = 255 - arr
+    return Image.fromarray(arr).convert("RGB")
+
+
+_hed = None
+
+def hed_scribble(img):
+    # pretrained HED edge detector, turned into scribble-style lines
+    global _hed
+    if _hed is None:
+        from controlnet_aux import HEDdetector
+        _hed = HEDdetector.from_pretrained("lllyasviel/Annotators")
+    out = _hed(img.convert("RGB"), scribble=True)
+    return out.resize(img.size)
