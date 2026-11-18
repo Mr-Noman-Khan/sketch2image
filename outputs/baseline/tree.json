@@ -1,0 +1,8 @@
+{
+  "control_type": "scribble",
+  "steps": 25,
+  "guidance_scale": 7.5,
+  "controlnet_scale": 1.0,
+  "seed": 42,
+  "prompt": "a large old oak tree in a green meadow, sunny day, blue sky, photorealistic, highly detailed"
+}

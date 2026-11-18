@@ -1,0 +1,8 @@
+{
+  "control_type": "scribble",
+  "steps": 25,
+  "guidance_scale": 7.5,
+  "controlnet_scale": 1.0,
+  "seed": 42,
+  "prompt": "a colorful butterfly with detailed patterned wings resting on a flower, macro photography, soft natural light, photorealistic"
+}

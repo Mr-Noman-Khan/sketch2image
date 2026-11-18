@@ -1,0 +1,30 @@
+defaults:
+  control_type: scribble
+  steps: 25
+  guidance_scale: 7.5
+  controlnet_scale: 1.0
+  seed: 42
+
+sketches:
+  butterfly:
+    prompt: "a colorful butterfly with detailed patterned wings resting on a flower, macro photography, soft natural light, photorealistic"
+  camera:
+    prompt: "a vintage film camera, black leather and silver metal, studio product photo, soft lighting, highly detailed"
+  city:
+    prompt: "a modern city skyline at dusk, glowing windows, reflections, cinematic lighting, photorealistic, highly detailed"
+  eye:
+    prompt: "a close-up of a human eye with a green iris, detailed eyelashes, macro photography, sharp focus, photorealistic"
+  pencil:
+    prompt: "a yellow wooden pencil on a white desk, product photo, soft shadows, photorealistic"
+  person:
+    prompt: "a portrait of a person in casual clothes, natural light, photorealistic, highly detailed"
+  scribble:
+    prompt: "CHANGE ME - describe what the scribble shows"
+  skull:
+    prompt: "a realistic human skull, ivory bone texture, dramatic side lighting, dark background, highly detailed"
+  station:
+    prompt: "a busy train station with steel and glass roof, warm evening light, photorealistic, highly detailed"
+  tree:
+    prompt: "a large old oak tree in a green meadow, sunny day, blue sky, photorealistic, highly detailed"
+  yellow_flowers:
+    prompt: "a bouquet of bright yellow flowers in a glass vase, sunlight from a window, photorealistic, highly detailed"

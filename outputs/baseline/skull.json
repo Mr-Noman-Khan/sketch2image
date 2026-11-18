@@ -1,0 +1,8 @@
+{
+  "control_type": "scribble",
+  "steps": 25,
+  "guidance_scale": 7.5,
+  "controlnet_scale": 1.0,
+  "seed": 42,
+  "prompt": "a realistic human skull, ivory bone texture, dramatic side lighting, dark background, highly detailed"
+}
